@@ -8,6 +8,15 @@ import joblib
 model  = joblib.load('loan_model.pkl')
 scaler = joblib.load('scaler.pkl')
 
+
+# Hide Streamlit UI elements
+st.markdown("""
+    <style>
+    #MainMenu {visibility: hidden;}
+    header {visibility: hidden;}
+    footer {visibility: hidden;}
+    </style>
+""", unsafe_allow_html=True)
 # ============================================================
 # Page Config
 # ============================================================

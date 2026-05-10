@@ -1,13 +1,10 @@
+
 import streamlit as st
 import numpy as np
 import joblib
 
-# ============================================================
-# Load saved model and scaler
-# ============================================================
-model  = joblib.load('loan_model.pkl')
-scaler = joblib.load('scaler.pkl')
-
+# Page Config MUST be first
+st.set_page_config(page_title="Loan Status Predictor", page_icon="🏦")
 
 # Hide Streamlit UI elements
 st.markdown("""
@@ -17,13 +14,15 @@ st.markdown("""
     footer {visibility: hidden;}
     </style>
 """, unsafe_allow_html=True)
-# ============================================================
-# Page Config
-# ============================================================
-st.set_page_config(page_title="Loan Status Predictor", page_icon="🏦")
+
+# Add these back
 st.title("🏦 Loan Status Predictor")
 st.markdown("Fill in the details below to check loan approval status.")
 st.divider()
+
+# Load saved model and scaler
+model  = joblib.load('loan_model.pkl')
+scaler = joblib.load('scaler.pkl')
 
 # ============================================================
 # Input Form
